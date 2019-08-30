@@ -1,6 +1,7 @@
 package http
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/cockroachdb/errors"
@@ -26,6 +27,12 @@ func WorldHandler(
 			return err
 		}
 		defer file.Close()
+
+		// Set appropriate headers.
+		c.Response().Header().Set(
+			"Content-Disposition",
+			fmt.Sprintf(`attachment; filename="%s"`, info.Name()),
+		)
 
 		// Serve world file.
 		http.ServeContent(
