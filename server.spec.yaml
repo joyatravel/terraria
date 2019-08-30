@@ -1,0 +1,7 @@
+server:
+  shutdownTimeout: Duration
+
+terraria:
+  serverAddress: String
+  worldDir: /data/worlds
+
