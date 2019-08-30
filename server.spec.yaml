@@ -3,5 +3,5 @@ server:
 
 terraria:
   serverAddress: String
-  worldDir: /data/worlds
+  worldDir: String
 

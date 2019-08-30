@@ -1,5 +1,5 @@
 kind: pipeline
-name: default
+name: server
 
 steps:
   - name: install
@@ -86,3 +86,29 @@ volumes:
     temp: {}
   - name: info
     temp: {}
+
+---
+
+kind: pipeline
+name: client
+
+steps:
+  - name: install
+    image: node
+    commands:
+      - cd client
+      - yarn install
+
+  - name: build
+    image: node
+    commands:
+      - cd client
+      - yarn build:prod
+
+  - name: publish
+    image: plugins/gh-pages
+    settings:
+      username: stevenxie
+      password:
+        from_secret: github_pass
+      pages_directory: client/dist
