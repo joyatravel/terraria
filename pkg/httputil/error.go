@@ -48,7 +48,7 @@ func ErrorHandler(log logrus.FieldLogger) echo.HTTPErrorHandler {
 
 	Send:
 		// Send error, handle JSON marshalling failures.
-		if err = c.JSON(status, &data); err != nil {
+		if err = c.JSONPretty(status, &data, JSONPrettyIndent); err != nil {
 			const msg = "Failed to write JSON error."
 			c.Response().WriteHeader(http.StatusInternalServerError)
 			io.WriteString(c.Response(), msg)

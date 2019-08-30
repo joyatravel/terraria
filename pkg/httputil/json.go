@@ -7,7 +7,10 @@ import (
 	"go.stevenxie.me/gopkg/zero"
 )
 
+// JSONPrettyIndent is the indent string used for JSONPretty.
+const JSONPrettyIndent = "  "
+
 // JSONPretty sends v as JSON, but with nice indentations.
 func JSONPretty(c echo.Context, v zero.Interface) error {
-	return c.JSONPretty(http.StatusOK, v, "  ")
+	return c.JSONPretty(http.StatusOK, v, JSONPrettyIndent)
 }

@@ -1,7 +1,6 @@
 package httputil
 
 import (
-	"net/http"
 	"os"
 
 	echo "github.com/labstack/echo/v4"
@@ -20,6 +19,6 @@ func InfoHandler(name, version string) echo.HandlerFunc {
 			Version:     version,
 			Environment: os.Getenv("GOENV"),
 		}
-		return c.JSONPretty(http.StatusOK, data, "  ")
+		return JSONPretty(c, &data)
 	}
 }
