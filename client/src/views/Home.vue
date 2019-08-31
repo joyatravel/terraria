@@ -121,6 +121,7 @@ header {
     padding: 12px;
     color: white;
     background: black;
+    border-radius: 2px;
   }
 
   // prettier-ignore
@@ -135,7 +136,7 @@ main {
   width: 300px;
 
   section {
-    margin-bottom: 22px;
+    margin-bottom: 26px;
 
     // prettier-ignore
     .title { margin-bottom: 5px; }
@@ -187,6 +188,8 @@ main {
 
     // prettier-ignore
     section {
+      margin-bottom: 24px;
+
       .title { font-size: 17pt; }
       .row {
         .key { font-size: 13.5pt; }

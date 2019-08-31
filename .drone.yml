@@ -58,7 +58,7 @@ steps:
 
   - name: build_image
     image: stevenxie/kaniko-drone
-    settings: &image_build_settings
+    settings:
       repo: tugolo/terraria-status-server
       tags:
         - |

@@ -1,6 +1,7 @@
 package disk
 
 import (
+	stderrs "errors"
 	"io/ioutil"
 	"os"
 	"path"
@@ -75,4 +76,4 @@ func (wf WorldFinder) GetWorldFile(name string) (*os.File, os.FileInfo, error) {
 
 // ErrWorldNotFound is returned by a WorldFinder when it fails to find the file
 // corresponding to a particular world.
-var ErrWorldNotFound = errors.New("disk: no such world file was found")
+var ErrWorldNotFound = stderrs.New("disk: no such world file was found")
