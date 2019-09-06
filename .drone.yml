@@ -3,7 +3,7 @@ name: server
 
 steps:
   - name: install
-    image: golang:1.13-rc
+    image: golang:1.13
     commands: ["go mod download"]
     volumes:
       - name: gopath
@@ -33,7 +33,7 @@ steps:
         path: /info
 
   - name: build_binaries
-    image: golang:1.13-rc
+    image: golang:1.13
     commands:
       - export MOD="$(cat /info/module)"
       - |

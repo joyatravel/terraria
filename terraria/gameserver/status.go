@@ -8,7 +8,6 @@ import (
 
 	"github.com/cockroachdb/errors"
 	"github.com/sirupsen/logrus"
-
 	"github.com/tugolo/terraria/terraria"
 )
 
@@ -58,6 +57,7 @@ func (svc statusService) GetStatus() (*terraria.Status, error) {
 	qp.Set("players", "true")
 	url.RawQuery = qp.Encode()
 
+	// Get status from gameserver.
 	res, err := svc.client.Get(url.String())
 	if err != nil {
 		log.WithError(err).Error("Failed to get server status.")
@@ -65,6 +65,7 @@ func (svc statusService) GetStatus() (*terraria.Status, error) {
 	}
 	defer res.Body.Close()
 
+	// Parse response as JSON.
 	var data struct {
 		PlayerCount int `json:"playercount"`
 		MaxPlayers  int `json:"maxplayers"`

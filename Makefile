@@ -72,7 +72,7 @@ secrets-reveal: # Reveals secret files that were hidden using git-secret.
         go-lint go-test go-bench go-review
 
 # Export environment variables to configure the Go toolchain.
-__GOENV = if [ -n "$(GONOSUMDB)" ]; then export GONOSUMDB="$(GONOSUMDB)"; fi
+__GOENV = if [ -n "$(GOPRIVATE)" ]; then export GOPRIVATE="$(GOPRIVATE)"; fi
 
 go-shell: SHELL := /usr/bin/env bash
 go-shell: # Launch a shell with a env preset for the Go toolchain.
@@ -169,7 +169,7 @@ go-bench: # Run benchmarks.
 	 $(__GOTEST) -run=^$$ -bench=. -benchmem ./... $(__ARGS)
 
 
-# == Hacks ==
+# HACKS:
 # These targets are hacks that allow for Make targets to receive
 # pseudo-arguments.
 .PHONY: __FORCE
