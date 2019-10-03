@@ -110,5 +110,5 @@ steps:
     settings:
       username: stevenxie
       password:
-        from_secret: github_pass
+        from_secret: github_token
       pages_directory: client/dist
